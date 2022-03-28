@@ -1,0 +1,21 @@
+<!--components/movieList/movieList.wxml-->
+<view class="movieListContainer">
+<view class="imgWrap">
+  <image src="{{hotMovieData.img}}"></image>
+</view>
+<view class="content">
+ <view class="titleWrap">
+ <view class="title">{{hotMovieData.nm}}</view>
+ <text class="icon  {{ hotMovieData.version ? 'max2d' : ''}}"></text>
+</view>
+ <view class="cinemaScore mgTop">观众评 <text class="score">{{hotMovieData.sc}}</text></view>
+ <view class="actor mgTop ellipsis_l1">主演:{{hotMovieData.star}}</view>
+ <view class="mgTop">{{hotMovieData.showInfo !== 'undefined' ? hotMovieData.showInfo : ''}}</view>
+</view>
+<view>
+  <button class="ticket" wx-if="{{hotMovieData.showst === 3}}">购票</button>
+  <button class="presell" wx-if="{{hotMovieData.showst === 4}}">预售</button>
+  <button class="wannaSee" wx-if="{{hotMovieData.showst === 1}}">想看</button>
+  <button class="preview" wx-if="{{hotMovieData.showst === 2}}">点映</button>
+</view>
+</view>

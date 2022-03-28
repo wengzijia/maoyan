@@ -1,0 +1,8 @@
+<!--pages/seeMovie/seeMovie.wxml-->
+<view>
+  <block wx:for="{{seeMovieDetail}}" wx:key="id">
+   <navigator open-type="navigate" url="/pages/detail/detail?id={{item.id}}" >
+      <movieList hotMovieData="{{item}}"></movieList>
+   </navigator>
+  </block>
+</view>

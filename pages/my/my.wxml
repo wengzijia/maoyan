@@ -1,0 +1,9 @@
+<!--pages/my/my.wxml-->
+<view class="myContainer">
+  <navigator open-type="navigate" url="/pages/order/order">
+  <view class="item">我的订单</view>
+  </navigator>
+  <navigator open-type="navigate" url="/pages/seeMovie/seeMovie" >
+  <view class="item">想看的电影</view>
+  </navigator>
+</view>

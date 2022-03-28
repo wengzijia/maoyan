@@ -1,0 +1,45 @@
+<!--pages/movie/movie.wxml-->
+<view class="header">
+  <view>
+    <text>{{city}}</text>
+    <text class="iconfont icon-dingwei"></text>
+  </view>
+  <mp-tabs tabs="{{tabs}}" activeTab="{{activeIndex}}" swiperClass="weui-tabs-swiper" bindchange="onChange" activeClass="tab-bar-title__selected" tabUnderlineColor="#dd403b" tab-active-text-color="#dd403b">
+  </mp-tabs>
+  <mp-icon icon="search" size="26" color="#dd403b"></mp-icon>
+</view>
+<!-- open-type="openSetting" 	打开授权设置页    -->
+<button open-type="openSetting" type="warn" plain wx:if="{{!isAgreeGetLocation}}">打开授权页面</button>
+<!-- 热映电影 -->
+<block wx:if="{{activeIndex === 0}}">
+<!-- refresher-enabled 开启自定义下拉刷新    bindrefresherrefresh   自定义下拉刷新被触发 
+    refresher-triggered   true 表示下拉刷新已经被触发   true 也就是复位   不然会卡在那里
+    刚开始为false    下拉刷新改为true就关闭
+ -->
+  <scroll-view refresher-enabled="true" bindscrolltolower="scrollLoadMore"  bindrefresherrefresh="pullToRefresh" refresher-triggered="{{isPullRefresh}}" scroll-y="{{true}}" style="height: {{windowHeight}}px;">
+  <block wx:for="{{movieListData}}" wx:key="auto_id">
+  <navigator open-type="navigate" url="/pages/detail/detail?id={{item.id}}"  style="border-bottom: 2rpx solid #f7ebeb">
+    <movieList  hotMovieData="{{item}}"></movieList>
+  </navigator>
+</block>
+  </scroll-view>
+  <view style="margin:auto;background-color:red;color: white;width: 200rpx;" wx:if="{{!isLoadFinish}}">已经到底啦!!!</view>
+</block>
+<!-- 待映电影 -->
+<block>
+  <scroll-view  scroll-y>
+  <!-- 期待电影 -->
+  <view class="rich"  >
+    <rich-text nodes="{{expectMoviesData}}"></rich-text>
+  </view>
+  <!-- 待映电影列表 -->
+  <view wx:for="{{reflectedData}}" wx:key="index">
+    <view> {{index}} </view>  
+    <block wx:for="{{item}}" wx:key="id">
+      <navigator open-type="navigate" url="/pages/detail/detail?id={{item.id}}" style="border-bottom: 2rpx solid #f7ebeb">
+        <movieList hotMovieData="{{item}}" ></movieList>
+      </navigator>
+    </block>
+  </view>
+  </scroll-view>
+</block>

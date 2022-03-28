@@ -1,0 +1,9 @@
+/* pages/my/my.wxss */
+.myContainer {
+  padding: 20rpx;
+}
+
+.myContainer .item{
+  padding: 10rpx;
+  border-bottom: 2rpx solid #f7d6d6;
+}

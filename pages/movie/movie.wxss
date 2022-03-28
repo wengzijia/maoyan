@@ -1,0 +1,21 @@
+/* pages/movie/movie.wxss */
+/* 引入最受好评电影样式 */
+@import "/assets/css/movie.wxss";
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+}
+
+.weui-tabs-bar__item{
+  margin-right: 100rpx;
+}
+
+.rich{
+  overflow: hidden;
+  height: 380rpx;
+}
+
+

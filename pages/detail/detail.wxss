@@ -1,0 +1,204 @@
+/* pages/detail/detail.wxss */
+/* 公共类 */
+.felx-l-r {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.heightHidden {
+  height: 148rpx;
+  overflow: hidden;
+}
+
+
+/* 单行显示省略号 */
+.text-ellipsisl1 {
+  /*1.先强制一行内显示文本*/
+  white-space: nowrap;
+  /*2.超出的部分隐藏*/
+  overflow: hidden;
+  /*3.文字用省略号替代超出的部分*/
+  text-overflow: ellipsis;
+}
+
+
+.detailContainer {
+  padding: 40rpx;
+  height: 100%;
+  margin-bottom: 80rpx;
+}
+
+
+/* 封面头部 */
+.detailContainer .movieInfoTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailContainer .movieInfoTop .imgWrap {
+  position: relative;
+  width: 200rpx;
+  height: 272rpx;
+}
+
+.detailContainer .movieInfoTop .imgWrap .cover {
+  width: 100%;
+  height: 100%;
+}
+
+.detailContainer .movieInfoTop .imgWrap .play {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.detailContainer .movieDescTop {
+  width: 430rpx;
+  height: 272rpx;
+}
+
+.detailContainer .movieDescTop .title {
+  color: white;
+  font-weight: 700;
+  font-size: 44rpx;
+}
+
+.detailContainer .movieDescTop .movieOtherInfo {
+  color: #a5adaf;
+  font-size: 22rpx;
+}
+
+.detailContainer .movieDescTop .btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailContainer .movieDescTop .btn button {
+  width: 214rpx;
+  background-color: #727f83;
+  color: #fbfdfe;
+  font-size: 24rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+}
+
+
+/* 购票评分 */
+
+.detailContainer .scoreWrap {
+  width: 680rpx;
+  height: 320rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  background-color: rgba(32, 48, 52, .8);
+}
+
+.detailContainer .scoreWrap .score {
+  color: #9aa1a3;
+  font-size: 24rpx;
+}
+
+.detailContainer .scoreWrap .score .mark {
+  color: white;
+}
+
+.detailContainer .scoreWrap .score .wannaSee {
+  margin: 0 26rpx;
+}
+
+.detailContainer .scoreWrap .gradeWrap {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.detailContainer .scoreWrap .gradeWrap .grade {
+  width: 190rpx;
+  height: 160rpx;
+}
+
+.detailContainer .scoreWrap .gradeWrap .grade .count {
+  font-size: 60rpx;
+  color: #ffb400;
+}
+
+.detailContainer .scoreWrap .gradeWrap .starWrap {
+  width: 260rpx;
+  height: 216rpx;
+}
+
+.detailContainer .scoreWrap .gradeWrap .starWrap view {
+  height: 40rpx;
+}
+
+.detailContainer .scoreWrap .gradeWrap .avatars {
+  width: 800rpx;
+  background-color: rgba(28, 42, 46, .6);
+  color: #f9f3d0;
+}
+
+.detailContainer .scoreWrap .gradeWrap .avatars image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* 简介 */
+.detailContainer .introWrap {
+  color: white;
+}
+
+.detailContainer .actorContainer {
+  margin-top: 40rpx;
+}
+
+.detailContainer .actorContainer .actorList {
+  display: flex;
+  color: white;
+  font-size: 22rpx;
+  text-align: center;
+}
+
+.detailContainer .actorContainer .actorList .actor {
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.detailContainer .actorContainer .actorList .actor image {
+  width: 160rpx;
+  height: 224rpx;
+}
+
+/* 剧照 */
+.detailContainer .stillText {
+  color: white;
+  margin-bottom: 40rpx;
+}
+
+.detailContainer .stagePhotoList {
+  display: flex;
+}
+
+.detailContainer .stagePhotoList .stagePhoto {
+  margin-right: 20rpx;
+}
+
+.detailContainer .stagePhotoList .stagePhoto image {
+  width: 280rpx;
+  height: 186rpx;
+}
+
+/* 视频 */
+
+.detailContainer .video video {
+  width: 662rpx;
+}
+
+/* 优惠购票 */
+.buyTicket {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}

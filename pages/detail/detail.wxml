@@ -1,0 +1,107 @@
+<!--pages/detail/detail.wxml-->
+<view class="detailContainer" style="background-color: {{detailData.backgroundColor}};">
+  <!-- 封面头部 -->
+  <view class="movieInfoTop">
+    <view class="imgWrap">
+      <image class="cover" src="{{coverPicture}}"></image>
+      <image class="play" src="https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/poster-play.png"></image>
+    </view>
+    <view class="movieDescTop">
+      <view class="title">{{detailData.nm}}</view>
+      <view class="movieOtherInfo">
+        <view>{{detailData.enm}}</view>
+        <view class="type">{{detailData.cat}}</view>
+        <view class="actor text-ellipsisl1">{{detailData.star}}</view>
+        <view class="releaseDate"> {{detailData.pubDesc}}/ {{detailData.dur}}分钟</view>
+      </view>
+      <view class="btn">
+        <button class="wantSee" bindtap="joinSeeMovie">
+          <mp-icon icon="like" color="{{isRed ? 'red' : 'white'}}"   size="{{20}}" style="margin-right: 10rpx;"></mp-icon>想看
+        </button>
+        <button class="haveSee">
+          <mp-icon icon="star" color="white" size="{{20}}" style="margin-right: 10rpx;"></mp-icon>看过
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- 猫眼评分 -->
+  <view class="scoreWrap">
+    <view class="score">
+      <van-icon name="fire-o"></van-icon>
+      <text class="mark">火焰购票评分</text>
+      <text class="wannaSee">{{detailData.wish}}人想看</text>
+      <text class="met">{{detailData.watched}}人看过></text>
+    </view>
+    <view class="gradeWrap">
+      <view class="grade">
+        <view class="count">{{detailData.sc}}</view>
+        <view class="haveRatings">{{detailData.snum}}人评</view>
+      </view>
+      <view class="starWrap">
+       <view><van-rate value="5" color="#ffd21e" /></view> 
+       <view><van-rate value="5" icon="like" void-icon="like-o" /></view> 
+       <view><van-rate value="5" icon="smile-o" color="#ffd21e" /></view> 
+       <view><van-rate value="5" icon="fire-o" void-icon="like-o" /></view> 
+       <view><van-rate value="5" icon="smile-comment-o" color="#ffd21e" /></view> 
+      </view>
+      <view class="avatars">
+        <image src="https://p1.meituan.net/scarlett/b2e6e57287731fb2b768ace2dc889b321236.png@80q"></image>
+        <text class="awardDetail">{{detailData.scm}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 简介 -->
+  <view class="introWrap">
+    <view class="intro felx-l-r">
+      <text>简介</text>
+      <text bindtap="isAddHeight">{{isUnfoldText}}</text>
+    </view>
+    <view class="introContent {{isUnfold ? 'heightHidden' :''}}">
+      {{detailData.dra}}
+    </view>
+  </view>
+  <!-- 演职人员 -->
+  <view class="actorContainer ">
+    <view class="cast felx-l-r">
+      <text class="staff">演职人员</text>
+      <text class="all">全部 ></text>
+    </view>
+      <scroll-view scroll-x="{{true}}" style="height: 360rpx;">
+      <view class="actorList">
+        <view class="actor" wx:for="{{actorList}}" wx:key="id">
+        <image  src="{{item.avatar}}" alt=""/>
+        <view class="name">{{item.cnm}}</view>
+        <view class="role">{{item.desc}}</view>
+       </view>
+      </view>
+      </scroll-view>
+  </view>
+
+  <!-- 剧照 -->
+  <view class="stillText">剧照</view>
+  <scroll-view scroll-x="{{true}}" style="height: 216rpx;">
+    
+      <view class="stagePhotoList">
+      <view class="stagePhoto" wx:for="{{detailData.photos}}" wx:key="photos">
+        <image bindtap="imgPreview" src="{{item}}"></image>
+      </view>
+      </view>
+  </scroll-view>
+
+  <view class="stillText">视频推荐</view>
+  <scroll-view scroll-x="{{true}}" style="height: 484rpx;">
+      <view class="stagePhotoList">
+      <view class="stagePhoto" wx:for="{{videoList}}" wx:key="id">
+        <video  src="{{item.url}}"></video>
+      </view>
+      </view>
+  </scroll-view>
+
+  <!-- 视频 -->
+  <view class="video">
+  <view class="stillText">视频</view>
+  <video  src="{{detailData.videourl}}"></video>
+  </view>
+</view>
+
+<button class="buyTicket" type="warn" bindtap="buyTicket">优惠购票</button>

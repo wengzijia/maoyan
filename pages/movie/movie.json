@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle":"dark",
+  "usingComponents": {
+  "mp-icon": "weui-miniprogram/icon/icon",
+  "mp-tabs":"/miniprogram_npm/@miniprogram-component-plus/tabs/index",
+  "movieList":"/components/movieList/movieList"
+}
+}
